@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="login" parallel="tests">
+<test name="login">
+</parameter>
+<classes>
+<class name="Telstra_coding_exercise_flipkart.Flipkart_loginPage_test"/>
+<class name="Telstra_coding_exercise_flipkart.Flipkart_homepage_test"/>
+<class name="Telstra_coding_exercise_flipkart.Flipkart_Add_To_Cart_Test"/>
+</classes>
+</test>
+</suite>
