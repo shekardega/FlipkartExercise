@@ -1,7 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Flipkart">
 <test name="login">
-</parameter>
 <classes>
 <class name="Telstra_coding_exercise_flipkart.Flipkart_loginPage_test"/>
 <class name="Telstra_coding_exercise_flipkart.Flipkart_homepage_test"/>
