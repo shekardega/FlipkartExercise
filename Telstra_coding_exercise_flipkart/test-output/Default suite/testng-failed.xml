@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Telstra_coding_exercise.Telstra_coding_exercise_flipkart.Flipkart_Add_To_Cart_Test">
+      <class name="Telstra_coding_exercise_flipkart.Flipkart_Add_To_Cart_Test">
         <methods>
-          <include name="afterMethod"/>
-          <include name="beforeMethod"/>
           <include name="login"/>
+          <include name="beforeMethod"/>
+          <include name="afterMethod"/>
         </methods>
-      </class> <!-- Telstra_coding_exercise.Telstra_coding_exercise_flipkart.Flipkart_Add_To_Cart_Test -->
+      </class> <!-- Telstra_coding_exercise_flipkart.Flipkart_Add_To_Cart_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

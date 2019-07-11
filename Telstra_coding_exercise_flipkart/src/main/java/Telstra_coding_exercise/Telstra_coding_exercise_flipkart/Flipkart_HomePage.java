@@ -5,40 +5,64 @@ import java.util.List;
 import java.util.Random;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Utility.BaseClass;
 
+/* execute the Flipkart_HomePage.java from this class
+*  search the product using searchbar
+*  select the random item or show the empty link*/
 public class Flipkart_HomePage extends BaseClass {
+
 	// Store the Elements
-	By searchBar = By.xpath("//input[@name='q']");
-	By searchButton = By.xpath("//button[@class='vh79eN']");
-	By boxArea = By.xpath("//div[@class='_1HmYoV _35HD7C']");
+	@FindBy(xpath = "//input[@name='q']")
+	WebElement searchBar;
+	@FindBy(xpath = "//button[@class='vh79eN']")
+	WebElement searchButton;
+	@FindBy(xpath = "//div[@class='_1HmYoV _35HD7C']")
+	WebElement boxArea;
+	By links = By.xpath("//a");
+
+	// Store the elements in Pagefactory
+	public Flipkart_HomePage(WebDriver driver) {
+
+		this.driver = driver;
+
+		// This initElements method will create all WebElements
+
+		PageFactory.initElements(driver, this);
+
+	}
 
 	// search for product
 	public void Search(String product) {
 		entertext(searchBar, product);
 		click(searchButton);
+
 	}
 
 	// Select the Product
 	public void selectItem() throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(driver, 20);
 		// select the particular box area
-		WebElement box = selectElement(boxArea);
+
 		// select the elements in the selected box area
-		List<WebElement> links = box.findElements(By.xpath("//a"));
-		System.out.println(links.size());
+		listOfElements(boxArea, links);
+
+		System.out.println(listOfElements(boxArea, links).size());
 		// selects the random element
-		WebElement link = links.get(new Random().nextInt(links.size()));
+		WebElement link = listOfElements(boxArea, links)
+				.get(new Random().nextInt(listOfElements(boxArea, links).size()));
 		// if selected element is valid element
 		if (link.isDisplayed()) {
 			System.out.println(link.getText());
-			if(!link.getAttribute("href").isEmpty()) {
-			link.click();
+			if (!link.getAttribute("href").isEmpty()) {
+				link.click();
 			}
 		}
 		// else selected element is not valid

@@ -2,21 +2,13 @@ package Utility;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
-import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -25,11 +17,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.google.common.io.Files;
 
+/*base class is used as parent class to all the other class present in the package
+ * all the reusable methods present in this class */
 public class BaseClass {
 	public static WebDriver driver;
 
@@ -46,32 +40,39 @@ public class BaseClass {
 		}
 		driver.manage().window().maximize();
 	}
-
+	
 	// OpenApplication
 	public void openapplication(String url) throws IOException {
 		driver.get(url);
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 
+	}
+	public WebDriverWait explicitwait(int i) {
+		WebDriverWait wait =new WebDriverWait(driver, i);
+		return wait;
+		
 	}
 
 	// For Multiple Elements
-	public List<WebElement> listOfElements(By by) {
-		List<WebElement> element = driver.findElements(by);
-		return element;
+	public List<WebElement> listOfElements(WebElement element,By by) {
+		List<WebElement> elements = element.findElements(by);
+		return elements;
 	}
 
 	// For Single Elemet
-	public WebElement selectElement(By by) {
-		WebElement element = driver.findElement(by);
+	public WebElement selectElement(By object) {
+		WebElement element = driver.findElement(object);
 		return element;
 	}
 
 	// SendKeys To TextBox
-	public void entertext(By by, String text) {
+	public void entertext(WebElement element, String text) {
 
-		driver.findElement(by).clear();
+		element.clear();
 
-		driver.findElement(by).sendKeys(text);
+		element.sendKeys(text);
+		
 	}
 
 	// Get current Single Window
@@ -111,8 +112,8 @@ public class BaseClass {
 	}
 
 	// To Click Element
-	public void click(By by) {
-		driver.findElement(by).click();
+	public void click(WebElement element) {
+		element.click();
 	}
 
 	// Get page Title
