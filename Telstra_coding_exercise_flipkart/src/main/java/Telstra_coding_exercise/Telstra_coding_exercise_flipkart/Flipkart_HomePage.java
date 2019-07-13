@@ -1,18 +1,15 @@
 package Telstra_coding_exercise.Telstra_coding_exercise_flipkart;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
 
+
+import java.util.Random;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 import Utility.BaseClass;
 

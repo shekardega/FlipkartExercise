@@ -3,11 +3,6 @@ package Telstra_coding_exercise_flipkart;
 import static org.testng.Assert.assertEquals;
 
 import java.io.IOException;
-
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -26,9 +21,9 @@ import Utility.BaseClass;
  *  search the product using searchbar
  *  select the random item or show the empty link
  *3.execute the Flipkart_Add_To_Cart.java from this class
- *  select the product using mouse over actions
+ *  select the product using header links
  *  elements were identified from this class to select the product 
- *  javaScript is used in this class to use scroll and to select the element*/
+ *  select the random item or show the empty link*/
 
 public class Flipkart_Add_To_Cart_Test extends BaseClass
 {

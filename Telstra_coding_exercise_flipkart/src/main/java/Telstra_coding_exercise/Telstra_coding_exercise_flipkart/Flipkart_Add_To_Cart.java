@@ -10,9 +10,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-/*select the product using mouse over actions
- *elements were identified from this class to select the product 
- *javaScript is used in this class to use scroll and to select the element*/
+/*  select the product using header links
+ *  elements were identified from this class to select the product 
+ *  select the random item or show the empty link*/
 
 import Utility.BaseClass;
 
