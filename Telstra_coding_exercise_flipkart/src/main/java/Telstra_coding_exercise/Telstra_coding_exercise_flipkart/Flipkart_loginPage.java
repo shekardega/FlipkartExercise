@@ -22,7 +22,8 @@ public class Flipkart_loginPage extends BaseClass {
 	WebElement loginbutton;
 
 	// Store the elements in Pagefactory
-	public Flipkart_loginPage(WebDriver driver) {
+	public Flipkart_loginPage(WebDriver driver) 
+	{
 
 		this.driver = driver;
 
@@ -33,7 +34,8 @@ public class Flipkart_loginPage extends BaseClass {
 	}
 
 	// login with Valid data
-	public void getlogin(String user, String pwd) {
+	public void getlogin(String user, String pwd) 
+	{
 		entertext(username, user);
 		entertext(password, pwd);
 		click(loginbutton);

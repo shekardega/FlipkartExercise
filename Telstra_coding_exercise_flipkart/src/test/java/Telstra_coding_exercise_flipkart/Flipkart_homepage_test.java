@@ -17,11 +17,14 @@ import Utility.BaseClass;
 /* execute the Flipkart_HomePage.java from this class
 *  search the product using searchbar
 *  select the random item or show the empty link*/
-public class Flipkart_homepage_test extends BaseClass {
+public class Flipkart_homepage_test extends BaseClass 
+{
 
 	@Test
-	public void login() throws InterruptedException {
-		try {
+	public void login() throws InterruptedException 
+	{
+		try 
+		{
 			// login To Flipkart
 			Flipkart_loginPage login = new Flipkart_loginPage(driver);
 			login.getlogin(readconfig("username"), readconfig("password"));
@@ -29,18 +32,20 @@ public class Flipkart_homepage_test extends BaseClass {
 
 			// Search in Homepage
 			Flipkart_HomePage homepage = new Flipkart_HomePage(driver);
-			
 			homepage.Search(readconfig("search"));
 			homepage.selectItem();
 
-		} catch (IOException e) {
+		} 
+		catch (IOException e) 
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
 	@BeforeMethod
-	public void beforeMethod() throws IOException {
+	public void beforeMethod() throws IOException 
+	{
 		// OpenBrowser
 		openbrowser(readconfig("browser"));
 		// OpenApplication
@@ -48,8 +53,10 @@ public class Flipkart_homepage_test extends BaseClass {
 	}
 
 	@AfterMethod
-	public void afterMethod(ITestResult result) throws IOException {
-		if (!result.isSuccess()) {
+	public void afterMethod(ITestResult result) throws IOException 
+	{
+		if (!result.isSuccess()) 
+		{
 			Screenshot(this.getClass().getName());
 		}
 		// QuitBrowser
